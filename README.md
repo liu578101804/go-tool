@@ -1,17 +1,4 @@
-# go-encryption
+# go工具包
 
-go语言里面的常见加密算法
+- encryption加密包
 
-
-支持的加密算法：
-
-- AES
-- BASE64
-- DES
-    - ECB
-    - CBC
-- 3DES
-    - CBC
-- MD5
-- RSA
-- SHA
