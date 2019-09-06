@@ -1,4 +1,4 @@
-package email
+package mailman
 
 import (
 	"net/smtp"
