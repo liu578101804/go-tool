@@ -7,15 +7,17 @@ import (
 func TestNewHS256(t *testing.T) {
 
 	jwt := NewHS256([]byte("hello"))
-	jwt.SetHeader("hs256","jwt")
+	jwt.SetHeader("hs256")
 	jwt.WriteBody(map[string]interface{}{
 		"code": 123,
 		"msg": "hello",
 	})
 
-	jwtStr := "eyJUeXBlIjoiaHMyNTYiLCJBbGciOiJqd3QifQ==.eyJjb2RlIjoxMjMsIm1zZyI6ImhlbGxvIn0=.36c2b24a09d744bceb16eb5aff8cf4a00cd63fb56c5ffcb225eb319c2cc0bf05"
+	jwtStr := "eyJ0eXBlIjoiaHMyNTYiLCJhbGciOiJKV1QifQ==.eyJjb2RlIjoxMjMsIm1zZyI6ImhlbGxvIn0=.020bb7670d2486c1e7edc2511773ab8004c8190d2946c535754c046ba9a24451"
 
 	createJwt,err := jwt.CreateJwtString()
+	println(createJwt)
+
 	if err !=  nil{
 		t.Error(err)
 	}

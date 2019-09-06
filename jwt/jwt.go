@@ -8,7 +8,7 @@ import (
 
 type IJwt interface {
 	//设置头部
-	SetHeader(string,string)
+	SetHeader(string)
 	//设置签名算法
 	SetSignFunc(SignFunc)
 	//设置编码算法
@@ -24,8 +24,8 @@ type IJwt interface {
 }
 
 type Header struct {
-	Type 	string
-	Alg 	string
+	Type 	string 	`json:"type"`
+	Alg 	string	`json:"alg"`
 }
 
 //签名算法
@@ -41,10 +41,10 @@ type Jwt struct {
 	encodeFun 	EncodeFunc
 }
 
-func (j *Jwt) SetHeader(headerType string, alg string){
+func (j *Jwt) SetHeader(headerType string){
 	j.Header =  Header{
 		Type: headerType,
-		Alg: alg,
+		Alg: "JWT",
 	}
 }
 
