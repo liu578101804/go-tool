@@ -7,6 +7,6 @@ const (
 	MailContentTypeTxt = "Content-Type:text/plain; charset=UTF-8"
 )
 
-type IEmail interface {
+type IMailman interface {
 	SendEmail(to []string, subject, body string, contentType MailContentType) error
 }

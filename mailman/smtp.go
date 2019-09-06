@@ -8,7 +8,7 @@ import (
 )
 
 
-type Email struct {
+type Mailman struct {
 	ServerAddr 		string
 	Port 			int
 	FromUser 		string
@@ -16,7 +16,7 @@ type Email struct {
 	FromNickName 	string
 }
 
-func (e Email)SendEmail(to []string, subject, body string, contentType MailContentType) error  {
+func (e Mailman)SendEmail(to []string, subject, body string, contentType MailContentType) error  {
 	//认证
 	auth := smtp.PlainAuth("",e.FromUser,e.AuthPassword,e.ServerAddr)
 	//组建发送体
@@ -35,8 +35,8 @@ func (e Email)SendEmail(to []string, subject, body string, contentType MailConte
 QQ:
 - serverAddr: smtp.qq.com
 */
-func NewEmail(serverAddr,fromUser,authPassword,fromNickName string,port int) IEmail {
-	return Email{
+func NewMailman(serverAddr,fromUser,authPassword,fromNickName string,port int) IMailman {
+	return Mailman{
 		AuthPassword: authPassword,
 		ServerAddr: serverAddr,
 		FromNickName: fromNickName,
